@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #14b8a6;
+  --accent-color: #d97706;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --border-color: #e5e7eb;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  @apply bg-gray-50;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-opacity-50 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-opacity-50 transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-200;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  .category-icon {
+    @apply w-16 h-16 mx-auto mb-2;
+  }
+  
+  .nav-link {
+    @apply text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors duration-200;
+  }
+  
+  .product-card {
+    @apply card p-4 flex flex-col h-full transition-all duration-200 hover:scale-[1.02];
+  }
+  
+  .product-title {
+    @apply text-sm font-medium text-gray-800 mt-2 line-clamp-2;
+  }
+  
+  .product-price {
+    @apply text-base font-semibold text-gray-900 mt-1;
+  }
+  
+  .product-discount {
+    @apply text-xs font-medium text-success mt-1;
+  }
+  
+  .section-title {
+    @apply text-xl font-semibold text-gray-900 mb-4;
+  }
+  
+  .admin-sidebar-item {
+    @apply flex items-center w-full p-3 rounded-lg mb-2 transition-all duration-200 hover:bg-primary-50;
+  }
+  
+  .admin-sidebar-item.active {
+    @apply bg-primary-100 text-primary-700 shadow-sm;
+  }
+  
+  .admin-card {
+    @apply bg-white rounded-xl shadow-card p-6 transition-all duration-200 hover:shadow-card-hover;
+  }
+  
+  .stat-card {
+    @apply admin-card border-l-4 hover:scale-105 cursor-pointer;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.6s ease-out;
+}
+
+/* Cart badge animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.cart-badge-animate {
+  animation: pulse 0.5s;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #4f46e5;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
